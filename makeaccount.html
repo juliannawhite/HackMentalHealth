@@ -1,91 +1,6 @@
-
-<!DOCTYPE html>
-<head>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</head>
-<body>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </body>
-
-
-
-<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-messaging.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
-
-
-
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAY8C_ipybeNa9wpT41MZWRIzcHKIt7WJQ",
-    authDomain: "mentalmatch-d6c18.firebaseapp.com",
-    databaseURL: "https://mentalmatch-d6c18.firebaseio.com",
-    projectId: "mentalmatch-d6c18",
-    storageBucket: "mentalmatch-d6c18.appspot.com",
-    messagingSenderId: "357904505508"
-  };
-  firebase.initializeApp(config);
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
 <head>
 <meta charset=utf-8 />
-<title>MentalMatchResources</title>
+<title>MentalMatchAccount</title>
     <link id = "brain" rel = "icon" href = "http://www.empowher.com/sites/default/files/herarticle/mental-health-physical-health.jpg" >
 
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
@@ -95,6 +10,8 @@
 </head>
 
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 
@@ -114,11 +31,49 @@
     
 <a class = "section" onClick = "window.location = 'founders.html'"> Founders ~</a>
     
+</div>
+
+
+<div id = "makeaccount">
+Make an Account!
+</div>
+<br>
+<div class = "blurb">
+
+    <form class = "form" action="/index.html">
+  <fieldset>
+<br>
+    first name:<br>
+    <input type="text" name="firstname" value="">
+      <br><br>
+      last name:<br>
+    <input type="text" name="firstname" value="">
+      <br><br>
+      email:<br>
+    <input type="text" name="firstname" value="">
+      <br><br>
+      username:<br>
+    <input type="text" name="firstname" value="">
+      <br><br>
+    password:<br>
+    <input type="text" name="lastname" value=""><br><br>
+      
+    <input type="submit" value="Submit" onClick = "window.location = 'index.html'" />
+      
+  </fieldset>
+</form>
+    
     
 </div>
 
-<div id = "header">
-Resources!
-</div>
-    <br>
-    
+<script>
+
+
+function success() {
+    alert("Login Successful!");
+    Window.location = "index.html";
+    return true;
+}
+
+
+</script>
