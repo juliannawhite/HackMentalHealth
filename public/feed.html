@@ -51,6 +51,7 @@ Feed!
   <button id="post">Post</button><br/>
   <button id="cycle">Cycle</button><br/>
   <div id="results"></div>
+  <button id="match">Match me!</button><br/>
   </div>
   <script>
     <!-- we'll be adding code here -->
@@ -88,6 +89,10 @@ Feed!
       });
       textInput.value = "";
     });
+    document.querySelector('#match').addEventListener("click", function() {
+      alert('You\'ve been matched!');
+    });
+    
     cycleButton.addEventListener("click", function() {
       if (i > items.length - 1) {
         i = 0;
