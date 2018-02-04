@@ -36,7 +36,42 @@
 Make an Account!
 </div>
 <br>
-<div class = "blurb" >
+<div class = "blurb">
 
+    <form class = "form" action="/index.html">
+  <fieldset>
+<br>
+    first name:<br>
+    <input type="text" name="firstname" value="">
+      <br><br>
+      last name:<br>
+    <input type="text" name="firstname" value="">
+      <br><br>
+      email:<br>
+    <input type="text" name="firstname" value="">
+      <br><br>
+      username:<br>
+    <input type="text" name="firstname" value="">
+      <br><br>
+    password:<br>
+    <input type="text" name="lastname" value=""><br><br>
+      
+    <input type="submit" value="Submit" onClick = "window.location = 'index.html'" />
+      
+  </fieldset>
+</form>
+    
     
 </div>
+
+<script>
+
+
+function success() {
+    alert("Login Successful!");
+    Window.location = "index.html";
+    return true;
+}
+
+
+</script>

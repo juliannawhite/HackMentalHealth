@@ -31,3 +31,37 @@
 
 <div id = "header">
 Login!
+</div>
+<br>
+
+
+<div class = "blurb">
+
+    <form class = "form" action="/index.html">
+  <fieldset>
+<br>
+    username:<br>
+    <input type="text" name="firstname" value="">
+      <br><br><br>
+    password:<br>
+    <input type="text" name="lastname" value=""><br><br>
+      
+    <input type="submit" value="Submit" onClick = "window.location = 'index.html'" />
+      
+  </fieldset>
+</form>
+    
+    
+</div>
+
+<script>
+
+
+function success() {
+    alert("Login Successful!");
+    Window.location = "index.html";
+    return true;
+}
+
+
+</script>
