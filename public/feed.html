@@ -1,0 +1,143 @@
+
+<head>
+  
+  
+  
+<meta charset=utf-8 />
+<title>MentalMatchResources</title>
+    <link id = "brain" rel = "icon" href = "http://www.empowher.com/sites/default/files/herarticle/mental-health-physical-health.jpg" >
+
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+<link rel="stylesheet" type="text/css" href="main.css">    
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-messaging.js"></script>
+</head>
+
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+<div class = "navigate">
+
+<a class = "section" onClick = "window.location = 'index.html'"> ~ Home</a>
+    
+<a class = "section" onClick = "window.location = 'howitworks.html'"> ~ How it Works ~</a>
+    
+<a class = "section" onClick = "window.location = 'feed.html'"> Feed ~</a>
+    
+<a class = "section" onClick = "window.location = 'makeaccount.html'"> Make an Account ~</a>    
+    
+<a class = "section" onClick = "window.location = 'login.html'"> Login ~</a>        
+
+<a class = "section" onClick = "window.location = 'resources.html'"> Resources ~</a>
+    
+<a class = "section" onClick = "window.location = 'founders.html'"> Founders ~</a>
+    
+</div>
+
+<div id = "header">
+Feed!
+</div>
+
+
+<div id ="feed">
+  <input id="username" type="text" placeholder="Name"><br/>
+  <input id="text" type="text" placeholder="Message"><br/>
+  <button id="post">Post</button><br/>
+  <button id="cycle">Cycle</button><br/>
+  <div id="results"></div>
+  </div>
+  <script>
+    <!-- we'll be adding code here -->
+
+  var config = {
+    apiKey: "AIzaSyAY8C_ipybeNa9wpT41MZWRIzcHKIt7WJQ",
+    authDomain: "mentalmatch-d6c18.firebaseapp.com",
+    databaseURL: "https://mentalmatch-d6c18.firebaseio.com",
+    projectId: "mentalmatch-d6c18",
+    storageBucket: "mentalmatch-d6c18.appspot.com",
+    messagingSenderId: "357904505508"
+  };
+  firebase.initializeApp(config);
+//    var storageRef = firebase.storage().ref();
+    var rootRef = firebase.database().ref();
+    var usernameInput = document.querySelector('#username');
+    var textInput = document.querySelector('#text');
+    var postButton = document.querySelector('#post');
+    var cycleButton = document.querySelector('#cycle');
+    var i = 0;
+    var items = [];
+    
+    var username = usernameInput;
+//    var loginButton = document.querySelector('#login');
+//    postButton.style.display = "none";
+//    textInput.style.display = "none";
+    var messageListRef = firebase.database().ref('message_list');
+//    var newMessageRef = messageListRef.push();
+    postButton.addEventListener("click", function() {
+      var msgUser = usernameInput.value;
+      var msgText = textInput.value;
+      messageListRef.push({
+        'username': msgUser,
+        'text': msgText
+      });
+      textInput.value = "";
+    });
+    cycleButton.addEventListener("click", function() {
+      if (i > items.length - 1) {
+        i = 0;
+      }
+      var childref = document.getElementById("results");
+      
+      while (childref.firstChild) {
+        childref.removeChild(childref.firstChild);
+      }
+      document.getElementById("results").appendChild(items[i]);
+      i++;
+    });
+
+    var startListening = function() {
+      firebase.database().ref('message_list').on('child_added', function(snapshot) {
+        var msg = snapshot.val();
+      
+        var msgUsernameElement = document.createElement("b");
+        msgUsernameElement.textContent = msg.username;
+        
+        var msgTextElement = document.createElement("p");
+        msgTextElement.textContent = msg.text;
+        
+        var msgPicElement = document.createElement("img");
+        msgPicElement.setAttribute('src', 'https://data.whicdn.com/images/216697196/large.jpg');
+        msgPicElement.width = '100';
+        msgPicElement.height = '100';
+  
+        var msgElement = document.createElement("div");
+        msgElement.appendChild(msgUsernameElement);
+        msgElement.appendChild(msgTextElement);
+        msgElement.appendChild(msgPicElement);
+        msgElement.marginLeft = "center";
+        
+        
+        msgElement.className = "msg";
+        items.push(msgElement);
+//        document.getElementById("results").appendChild(msgElement);
+        document.getElementById("results").appendChild(items[0]);
+      });
+    }
+
+    
+    
+    
+    
+    //start listening for data
+    startListening();
+//    document.getElementById("results").appendChild(items[0]);
+    
+  </script>
+    <br>
+    

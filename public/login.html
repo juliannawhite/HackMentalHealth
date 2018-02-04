@@ -1,11 +1,11 @@
 <head>
 <meta charset=utf-8 />
-<title>MentalMatchResources</title>
+<title>MentalMatchLogin</title>
     <link id = "brain" rel = "icon" href = "http://www.empowher.com/sites/default/files/herarticle/mental-health-physical-health.jpg" >
 
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
-<link rel="stylesheet" type="text/css" href="index.css">    
+<link rel="stylesheet" type="text/css" href="main.css">    
 
 </head>
 
@@ -29,11 +29,41 @@
     
 <a class = "section" onClick = "window.location = 'founders.html'"> Founders ~</a>
     
-    
 </div>
 
 <div id = "header">
-Resources!
+Login!
 </div>
-    <br>
+<br>
+
+
+<div class = "blurb">
+
+    <form class = "form" action="/index.html">
+  <fieldset>
+<br>
+    username:<br>
+    <input type="text" name="firstname" value="">
+      <br><br><br>
+    password:<br>
+    <input type="text" name="lastname" value=""><br><br>
+      
+    <input type="submit" value="Submit" onClick = "window.location = 'index.html'" />
+      
+  </fieldset>
+</form>
     
+    
+</div>
+
+<script>
+
+
+function success() {
+    alert("Login Successful!");
+    Window.location = "index.html";
+    return true;
+}
+
+
+</script>
